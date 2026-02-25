@@ -88,7 +88,7 @@ jobs:
         uses: SimenB/github-actions-cpu-cores@v2
 
       - name: Install micromamba
-        uses: mamba-org/setup-micromamba@v1
+        uses: mamba-org/setup-micromamba@v2
         with:
           environment-file: environment-wasm-build.yml
           environment-name: xeus-sqlite-wasm-build
@@ -99,15 +99,16 @@ jobs:
       - name: Build
         shell: bash -l {0}
         run: |
-
-
-
-          micromamba create -f environment-wasm-host.yml --platform=emscripten-wasm32 --yes
+          micromamba create \
+            -f environment-wasm-host.yml --platform=emscripten-wasm32 \
+            -c https://prefix.dev/emscripten-forge-dev \
+            -c https://prefix.dev/conda-forge
 
           mkdir build
           pushd build
 
           export PREFIX=$MAMBA_ROOT_PREFIX/envs/xeus-sqlite-wasm-host
+          echo "PREFIX=$PREFIX" >> $GITHUB_ENV
           export CMAKE_PREFIX_PATH=$PREFIX
           export CMAKE_SYSTEM_PREFIX_PATH=$PREFIX
 
@@ -134,11 +135,10 @@ jobs:
       - name: Build jupyterlite page
         shell: bash -l {0}
         run: |
-          export PREFIX=$MAMBA_ROOT_PREFIX/envs/xeus-sqlite-wasm-host
           # build jupyterlite
           jupyter lite build  \
             --contents=examples \
-            --XeusAddon.prefix=$PREFIX
+            --XeusAddon.prefix=${{ env.PREFIX }}
 
 
 
