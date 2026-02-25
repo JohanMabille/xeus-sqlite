@@ -5,7 +5,7 @@ channels:
 dependencies:
   - nlohmann_json >= 3.12
   - nlohmann_json-abi
-  - xproperty
+  - xproperty < 0.13
   - cpp-tabulate
   - xvega
   - xvega-bindings
