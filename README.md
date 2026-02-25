@@ -7,7 +7,7 @@
 
 `xeus-sqlite` is a Jupyter kernel for SQL based on the native implementation of the Jupyter protocol [xeus](https://github.com/jupyter-xeus/xeus).
 
-`xeus-sqlite` now supports [vega](https://vega.github.io/) visualizations thanks to [xvega](https://github.com/Quantstack/xvega).
+`xeus-sqlite` now supports [vega](https://vega.github.io/) visualizations thanks to [xvega](https://github.com/jupyter-xeus/xvega).
 
 ## Usage
 
@@ -74,7 +74,7 @@ mamba install sphinx breathe doxygen sphinx_rtd_theme
 - [SQLite](https://github.com/sqlite/sqlite)
 - [SQLiteCPP](https://github.com/SRombauts/SQLiteCpp)
 - [Tabulate](https://github.com/p-ranav/tabulate)
-- [XVega](https://github.com/Quantstack/xvega)
+- [XVega](https://github.com/jupyter-xeus/xvega)
 
 | `xeus-sqlite`|    `xeus-zmq`   |     `SQLite`    |   `SQLiteCPP`   |   `tabulate`    | `nlohmann_json` | `xvega`   |`xvega-bindings`|
 |--------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------|----------------|
