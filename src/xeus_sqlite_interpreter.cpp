@@ -702,6 +702,7 @@ namespace xeus_sqlite
         result["language_info"]["version"] = SQLite::VERSION;
         result["language_info"]["mimetype"] = "";
         result["language_info"]["file_extension"] = "";
+        result["status"] = "ok";
         return result;
     }
 
